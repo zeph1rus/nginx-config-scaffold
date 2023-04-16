@@ -8,7 +8,7 @@
   "engines": {
     "node": ">= 12.0.0"
   },
-  "name": "nginx-config-scaffold",
+  "name": "@zeph1rus/nginx-config-scaffold",
   "author": "Jon Truran <jon@9600bps.net> (https://9600bps.net)",
   "version": "0.0.5",
   "description": "A tool to scaffold out certs and dns names in nginx config files so that the config can be tested easily in ephemeral environments like CI tooling",
