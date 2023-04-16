@@ -13,7 +13,7 @@
   },
   "name": "@zeph1rus/nginx-config-scaffold",
   "author": "Jon Truran <jon@9600bps.net> (https://9600bps.net)",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A tool to scaffold out certs and dns names in nginx config files so that the config can be tested easily in ephemeral environments like CI tooling",
   "keywords": [
     "nginx"
