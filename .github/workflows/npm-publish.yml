@@ -8,7 +8,6 @@ on:
     types: [created]
 
 jobs:
-
   publish-npm:
     runs-on: ubuntu-latest
     steps:
@@ -17,6 +16,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - run: npm install --no-save esbuild
+      - run: npm build
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

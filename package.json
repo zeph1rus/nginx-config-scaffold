@@ -8,15 +8,23 @@
   "engines": {
     "node": ">= 12.0.0"
   },
+  "scripts": {
+    "build": "esbuild cli.js --bundle --platform=node --target=node12 --outfile=dist/cli.js"
+  },
   "name": "@zeph1rus/nginx-config-scaffold",
   "author": "Jon Truran <jon@9600bps.net> (https://9600bps.net)",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "description": "A tool to scaffold out certs and dns names in nginx config files so that the config can be tested easily in ephemeral environments like CI tooling",
-  "keywords": ["nginx"],
+  "keywords": [
+    "nginx"
+  ],
   "license": "GPL-2.0-or-later",
   "homepage": "https://github.com/zeph1rus/nginx-config-scaffold",
   "bin": {
-    "nginx-config-scaffold": "./index.js"
+    "nginx-config-scaffold": "dist/cli.js"
   },
-  "repository": "github:zeph1rus/nginx-config-scaffold"
+  "repository": "github:zeph1rus/nginx-config-scaffold",
+  "devDependencies": {
+    "esbuild": "^0.17.17"
+  }
 }
