@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@webantic/nginx-config-parser": "^1.6.1",
+    "minimist": "^1.2.8",
+    "recursive-readdir": "^2.2.3",
+    "selfsigned": "^2.1.1"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "name": "nginx-config-scaffold",
+  "author": "Jon Truran <jon@9600bps.net> (https://9600bps.net)",
+  "version": "0.0.5",
+  "description": "A tool to scaffold out certs and dns names in nginx config files so that the config can be tested easily in ephemeral environments like CI tooling",
+  "keywords": ["nginx"],
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://github.com/zeph1rus/nginx-config-scaffold",
+  "bin": {
+    "nginx-config-scaffold": "./index.js"
+  },
+  "repository": "github:zeph1rus/nginx-config-scaffold"
+}
