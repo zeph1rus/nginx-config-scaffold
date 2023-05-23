@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
-node index.js --baseDir /etc/nginx --upstreams
+node cli.js --basedir /etc/nginx --upstreams --proxies
 nginx -t

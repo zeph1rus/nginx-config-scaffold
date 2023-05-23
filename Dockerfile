@@ -1,10 +1,10 @@
 FROM alpine:3.14
 RUN apk add nginx nodejs npm
-COPY confdir /etc/nginx
+COPY MY_CONFDIR_CHANGE_ME /etc/nginx
 RUN mkdir /opt/app
 WORKDIR "/opt/app"
 COPY "lib" "/opt/app/lib"
-COPY "index.js" "."
+COPY "cli.js" "."
 COPY "entrypoint.sh" "."
 RUN chmod u+x entrypoint.sh
 COPY "package.json" "."
