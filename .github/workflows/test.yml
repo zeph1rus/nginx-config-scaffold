@@ -17,4 +17,4 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm install
-      - run: npx run test
+      - run: npm run test
