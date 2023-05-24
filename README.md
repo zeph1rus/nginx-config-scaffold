@@ -6,22 +6,25 @@
 
 Install with `npm install @zeph1rus/nginx-config-scaffold`
 
-You'll need a version of Node.JS greater that `10.0.0`, greater than 16 is HIGHLY RECOMMENDED!
+You'll need a version of Node.JS greater than `12.0.0`, greater than 16 is _HIGHLY RECOMMENDED_!
 
 ## Running
 
-If you're testing nginx configs in an ephemeral CI environment such as Github Actions, Gitlab, or Bitbucket cloud,  just install nginx, copy your config to the nginx config directory, and run 
+If you're testing nginx configs in an ephemeral CI environment such as GitHub Actions, Gitlab, or Bitbucket cloud,  just install nginx, copy your config to the nginx config directory, and run 
 
 `npx run nginx-config-scaffold --basedir <your-config-dir>`
 
-by default we only create certificates, if you wish for your `/etc/hosts` to be updated with proxies or upstreams there are additional parameters to add
+by default, we only create certificates, if you wish for your hosts file to be updated with proxies or upstreams there are additional parameters to add. 
+
+One most Unixey platforms we will try to write to `/etc/hosts`, on Solaris it's `/etc/inet/hosts` and on Windows we try `C:\WINDOWS\SYSTEM32\DRIVERS\ETC\HOSTS`
+
 
 ### Parameters
 
         --basedir <baseDir>    Directory to scan configs from recursively
         --upstreams            Add upstreams to hosts file
         --proxies              Add proxy hosts to hosts file
-        --dryrun               Don't make changes, just tell me what it would do
+        --dryrun               Don't make changes, just tell me what actions would be performed
         --help/-h              This help
 
 ## Running in a Dockerfile
@@ -37,16 +40,17 @@ When run this container will exit with a non-zero exit code if the test fails
     COPY MY_CONFDIR_CHANGE_ME /etc/nginx
     RUN mkdir /opt/app
     WORKDIR "/opt/app"
-    COPY "lib" "/opt/app/lib"
-    COPY "cli.js" "."
     COPY "entrypoint.sh" "."
     RUN chmod u+x entrypoint.sh
-    COPY "package.json" "."
-    RUN npm install
+    RUN npm i @zeph1rus/nginx-config-scaffold
     ENTRYPOINT ["./entrypoint.sh"]
 
 ### entrypoint.sh
 
     #!/usr/bin/env sh
-    node cli.js --basedir /etc/nginx --upstreams --proxies
+    npx nginx-config-scaffold --basedir /etc/nginx --upstreams --proxies
     nginx -t
+
+## Nginx Plus
+
+This should work fine on NGINX plus installs, as long as you have it installed, if not the tests will fail on nginx-plus specific directives. 
