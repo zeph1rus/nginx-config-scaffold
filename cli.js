@@ -24,7 +24,7 @@ function printHelp() {
         "\n --basedir <baseDir>    Directory to scan configs from recursively\n" +
         " --upstreams            Add upstreams to hosts file \n" +
         " --proxies              Add proxy hosts to hosts file\n" +
-        " --dryrun               Don't make changes, just tell me what it would do \n" +
+        " --dryrun               Don't make changes, just tell me what actions would be performed \n" +
         " --help/-h              This help ")
 }
 

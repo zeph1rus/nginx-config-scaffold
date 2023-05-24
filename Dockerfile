@@ -1,12 +1,9 @@
-FROM alpine:3.14
+FROM alpine:latest
 RUN apk add nginx nodejs npm
 COPY MY_CONFDIR_CHANGE_ME /etc/nginx
 RUN mkdir /opt/app
 WORKDIR "/opt/app"
-COPY "lib" "/opt/app/lib"
-COPY "cli.js" "."
 COPY "entrypoint.sh" "."
 RUN chmod u+x entrypoint.sh
-COPY "package.json" "."
-RUN npm install
+RUN npm i @zeph1rus/nginx-config-scaffold
 ENTRYPOINT ["./entrypoint.sh"]

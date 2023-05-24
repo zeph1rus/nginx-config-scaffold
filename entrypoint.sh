@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
-node cli.js --basedir /etc/nginx --upstreams --proxies
+npx nginx-config-scaffold --basedir /etc/nginx --upstreams --proxies
 nginx -t
