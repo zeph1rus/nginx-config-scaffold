@@ -18,6 +18,7 @@ by default, we only create certificates, if you wish for your hosts file to be u
 
 One most Unixey platforms we will try to write to `/etc/hosts`, on Solaris it's `/etc/inet/hosts` and on Windows we try `C:\WINDOWS\SYSTEM32\DRIVERS\ETC\HOSTS`
 
+
 ### Parameters
 
         --basedir <baseDir>    Directory to scan configs from recursively
